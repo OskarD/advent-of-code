@@ -28,7 +28,8 @@ public class InverseCaptchaHalfwayMatchTest {
     @Test
     public void testSolve() {
         for (Map.Entry<String, Long> entry : expectedResults.entrySet()) {
-            TestCase.assertEquals(InverseCaptcha.solve(entry.getKey()), entry.getValue());
+            System.out.println(entry.getKey());
+            TestCase.assertEquals(entry.getValue(), new InverseCaptchaHalfwayMatch().solve(entry.getKey()));
         }
     }
 }

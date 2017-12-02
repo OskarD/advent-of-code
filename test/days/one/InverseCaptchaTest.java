@@ -26,7 +26,7 @@ public class InverseCaptchaTest {
     @Test
     public void testSolve() {
         for (Map.Entry<String, Long> entry : expectedResults.entrySet()) {
-            TestCase.assertEquals(InverseCaptcha.solve(entry.getKey()), entry.getValue());
+            TestCase.assertEquals(new InverseCaptcha().solve(entry.getKey()), entry.getValue());
         }
     }
 }

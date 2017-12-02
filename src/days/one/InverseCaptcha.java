@@ -11,15 +11,16 @@ public class InverseCaptcha {
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
+        InverseCaptcha ic = new InverseCaptcha();
 
         while (true) {
             System.out.println("Enter captcha: ");
             String input = s.next();
-            System.out.println("Solution: " + solve(input));
+            System.out.println("Solution: " + ic.solve(input));
         }
     }
 
-    public static Long solve(String captcha) {
+    public Long solve(String captcha) {
         long sum = 0;
 
         for (int i = 0; i < captcha.length(); i++) {
@@ -32,10 +33,11 @@ public class InverseCaptcha {
         return sum;
     }
 
-    private static char getNextComparedChar(String captcha, int currentIndex) {
+    protected char getNextComparedChar(String captcha, int currentIndex) {
         if (currentIndex == captcha.length() - 1) {
             return captcha.charAt(0);
         }
         return captcha.charAt(++currentIndex);
     }
+
 }

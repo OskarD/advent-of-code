@@ -5,11 +5,29 @@ package days.one;
 // in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has
 // an even number of elements.
 
+import java.util.Scanner;
+
 public class InverseCaptchaHalfwayMatch extends InverseCaptcha {
-    private static char getNextComparedChar(String captcha, int currentIndex) {
-        if (currentIndex == captcha.length() - 1) {
-            return captcha.charAt(0);
+    @SuppressWarnings("InfiniteLoopStatement")
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        InverseCaptchaHalfwayMatch ic = new InverseCaptchaHalfwayMatch();
+
+        while (true) {
+            System.out.println("Enter captcha: ");
+            String input = s.next();
+            System.out.println("Solution: " + ic.solve(input));
         }
-        return captcha.charAt(++currentIndex);
+    }
+
+    @Override
+    protected char getNextComparedChar(String captcha, int currentIndex) {
+        return captcha.charAt(getNextIndex(captcha.length(), currentIndex));
+    }
+
+    private int getNextIndex(int length, int currentIndex) {
+        int stepsForward = length / 2;
+        int nextIndex = currentIndex + stepsForward;
+        return nextIndex % length;
     }
 }
