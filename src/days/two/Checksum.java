@@ -27,7 +27,7 @@ public class Checksum {
     }
 
     public static Long getChecksum(String line) {
-        String[] numbers = line.split("\t");
+        String[] numbers = line.split("(\t| )+");
 
         long min = Long.MAX_VALUE;
         long max = Long.MIN_VALUE;
