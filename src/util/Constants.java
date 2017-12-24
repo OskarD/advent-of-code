@@ -1,4 +1,6 @@
-package days;
+package util;
 
 public class Constants {
+    public static final String DELIMITER = "(\t| )+";
+
 }

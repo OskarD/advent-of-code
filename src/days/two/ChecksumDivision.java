@@ -1,6 +1,8 @@
 package days.two;
 
 
+import util.Constants;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -28,7 +30,7 @@ public class ChecksumDivision {
     }
 
     public static Long getChecksum(String line) {
-        String[] numbers = line.split("(\t| )+");
+        String[] numbers = line.split(Constants.DELIMITER);
 
         long[] longNumbers = Arrays.stream(numbers)
                 .mapToLong(Long::parseLong)

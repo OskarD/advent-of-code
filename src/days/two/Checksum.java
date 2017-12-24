@@ -1,6 +1,8 @@
 package days.two;
 
 
+import util.Constants;
+
 import java.util.Scanner;
 
 // The spreadsheet consists of rows of apparently-random numbers. To make sure
@@ -9,6 +11,7 @@ import java.util.Scanner;
 // largest value and the smallest value; the checksum is the sum of all of
 // these differences.
 public class Checksum {
+
 
     public static void main(String[] args) {
         System.out.println("Type \"end \" to end input");
@@ -27,7 +30,7 @@ public class Checksum {
     }
 
     public static Long getChecksum(String line) {
-        String[] numbers = line.split("(\t| )+");
+        String[] numbers = line.split(Constants.DELIMITER);
 
         long min = Long.MAX_VALUE;
         long max = Long.MIN_VALUE;
