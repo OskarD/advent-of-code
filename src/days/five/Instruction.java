@@ -1,6 +1,6 @@
 package days.five;
 
-public class Instruction {
+public class Instruction implements InstructionInterface {
 
     private int value;
 
@@ -8,6 +8,7 @@ public class Instruction {
         this.value = value;
     }
 
+    @Override
     public int perform() {
         return value++;
     }

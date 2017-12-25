@@ -5,26 +5,37 @@ import junit.framework.TestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TwistyMazeTest {
 
     private static HashMap<String, Boolean> expectedResults = new HashMap<>();
 
+    private int[] INSTRUCTIONS = {0, 3, 0, 1, -3};
+
     @Test
     public void testSolve() {
-        Instruction[] instructions = {
-                new Instruction(0),
-                new Instruction(3),
-                new Instruction(0),
-                new Instruction(1),
-                new Instruction(-3)
-        };
+        List<InstructionInterface> instructions = new ArrayList<>();
 
-        Maze maze = new Maze(Arrays.asList(instructions));
+        for (int instruction : INSTRUCTIONS) {
+            instructions.add(new Instruction(instruction));
+        }
 
-        TestCase.assertEquals(maze.solve(), 5);
+        Maze maze = new Maze(instructions);
+
+        TestCase.assertEquals(5, maze.solve());
+    }
+
+    @Test
+    public void testStrangeSolve() {
+        List<InstructionInterface> instructions = new ArrayList<>();
+
+        for (int instruction : INSTRUCTIONS) {
+            instructions.add(new StrangeInstruction(instruction));
+        }
+
+        Maze maze = new Maze(instructions);
+
+        TestCase.assertEquals(10, maze.solve());
     }
 }

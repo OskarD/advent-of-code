@@ -3,9 +3,9 @@ package days.five;
 import java.util.List;
 
 public class Maze {
-    private final List<Instruction> instructions;
+    private final List<InstructionInterface> instructions;
 
-    Maze(List<Instruction> instructions) {
+    Maze(List<InstructionInterface> instructions) {
         this.instructions = instructions;
     }
 
