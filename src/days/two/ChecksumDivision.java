@@ -1,8 +1,6 @@
 package days.two;
 
-
 import util.Constants;
-
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
